@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+const style = {
+    listItem: {
+        flex: 1,
+        width: '640px'
+    }
+};
 
 class List extends Component {
 
@@ -46,7 +52,7 @@ class List extends Component {
         }
 
         return (
-            <div className="App-header">
+            <div style={style.listItem}>
                 <ul>
                     {this.state.data.map(value => (
                         <a href={"/reaction/" + value['directoryName']}>
