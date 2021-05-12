@@ -5,7 +5,13 @@ const style = {
     listItem: {
         flex: 1,
         width: '640px'
-    }
+    },
+
+    // xxx: {
+    //     display: block,
+    //     margin-left: auto,
+    //     margin-right: auto,
+    // }
 };
 
 class List extends Component {
@@ -42,25 +48,31 @@ class List extends Component {
 
 
     render() {
-
         if (!this.state.loading) {
             return (
-                <div className="App-header">
+                <div>
                     <p>Loading...</p>
                 </div>
             );
         }
 
         return (
-            <div style={style.listItem}>
-                <ul>
+            <div>
+                <ul style={{
+                    alignItems: 'center',
+                    // backgroundColor: 'red',
+                }}>
                     {this.state.data.map(value => (
                         <a href={"/reaction/" + value['directoryName']}>
-                            <div>
-                                <h2>{value['directoryName']}</h2>
-                                <img
-                                    src={"https://chemist.swiswiswift.com/resource/images/" + value['directoryName'] + "/" + value['thmbnailName']}/>
-                            </div>
+                            <h2>{value['directoryName']}</h2>
+                            <img
+                                alt={value['directoryName']}
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    width: 800
+                                }}
+                                src={"https://chemist.swiswiswift.com/resource/images/" + value['directoryName'] + "/" + value['thmbnailName']}/>
                         </a>
                     ))}
                 </ul>

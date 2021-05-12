@@ -48,11 +48,51 @@ class Detail extends Component {
         }
 
         return (
-            <div className="App-header">
+            <div>
+                <Link to="/">Top</Link>
                 <div>
-                    <h2>{this.state.data['directoryName']}</h2>
-                    <img
-                        src={"https://chemist.swiswiswift.com/resource/images/" + this.state.data['directoryName'] + "/" + this.state.data['thmbnailName']}/>
+                    <h2>{this.state.data['english']}</h2>
+
+                    <h2>GeneralFormula</h2>
+                    {this.state.data['generalFormulas'].map(value => (
+                        <img
+                            alt={this.state.data['directoryName']}
+                            style={{
+                                width: 800
+                            }}
+                            src={"https://chemist.swiswiswift.com/resource/images/" + this.state.data['directoryName'] + "/" + value['imageName']}/>
+                    ))}
+
+                    <h2>Mechanism</h2>
+                    {this.state.data['mechanisms'].map(value => (
+                        <img
+                            alt={this.state.data['directoryName']}
+                            style={{
+                                width: 800
+                            }}
+                            src={"https://chemist.swiswiswift.com/resource/images/" + this.state.data['directoryName'] + "/" + value['imageName']}/>
+                    ))}
+
+                    <h2>Example</h2>
+                    {this.state.data['examples'].map(value => (
+                        <img
+                            alt={this.state.data['directoryName']}
+                            style={{
+                                width: 800
+                            }}
+                            src={"https://chemist.swiswiswift.com/resource/images/" + this.state.data['directoryName'] + "/" + value['imageName']}/>
+                    ))}
+
+
+                    <h2>Supplement</h2>
+                    {this.state.data['supplements'].map(value => (
+                        <img
+                            alt={this.state.data['directoryName']}
+                            style={{
+                                width: 800
+                            }}
+                            src={"https://chemist.swiswiswift.com/resource/images/" + this.state.data['directoryName'] + "/" + value['imageName']}/>
+                    ))}
                 </div>
             </div>
         );
